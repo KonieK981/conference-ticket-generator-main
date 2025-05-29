@@ -1,12 +1,12 @@
 :root {
   --neutral-0: hsl(0, 0%, 100%);
   --neutral-300: hsl(252, 6%, 83%);
-  --neutral-500: hsl(245, 15%, 58%);
+  --neutral-500: hsl(246, 15%, 58%);
   --neutral-700: hsl(245, 19%, 35%);
   --neutral-900: hsl(248, 70%, 10%);
 
   --orange-500: hsl(7, 88%, 67%);
-  --orange-500: hsl(7, 71%, 60%);
+  --orange-700: hsl(7, 71%, 60%);
 
   --gradient-text: linear-gradient(
     to right,
@@ -22,25 +22,38 @@
   --font-weight-bold: 700;
   --font-weight-extra-bold: 800;
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html,
 body {
-  height: 100%;
-  width: 100%;
   margin: 0;
   padding: 0;
 }
 
+@font-face {
+  font-family: "Inconsolata";
+  src: url("/assets/fonts/Inconsolata-VariableFont_wdth,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
-  font-family: var(--font-family-base);
+  background-attachment: fixed;
   background-color: var(--neutral-0);
-  color: var(--neutral-0);
-  background: url(/assets//images/background-mobile.png);
-  background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-size: cover;
+  background: url(/assets//images/background-mobile.png);
+  color: var(--neutral-0);
+  font-family: var(--font-family-base);
   position: relative;
+  padding: 1.5rem 0.8rem;
 }
 
 @media only screen and (min-width: 768px) {
@@ -53,4 +66,25 @@ body {
   body {
     background: url(/assets//images/background-desktop.png);
   }
+}
+
+.main-title {
+  margin: 0 auto;
+  width: 120px;
+  img {
+    width: 100%;
+  }
+}
+
+.title {
+  font-size: var(--font-size-label);
+  text-align: center;
+  color: var(--neutral-0);
+}
+
+.subtitle {
+  color: var(--neutral-500);
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-align: center;
 }
