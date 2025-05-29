@@ -23,8 +23,34 @@
   --font-weight-extra-bold: 800;
 }
 
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: var(--font-family-base);
   background-color: var(--neutral-0);
-  color: var(--neutral-900);
+  color: var(--neutral-0);
+  background: url(/assets//images/background-mobile.png);
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    background: url(/assets//images/background-tablet.png);
+  }
+}
+
+@media only screen and (min-width: 998px) {
+  body {
+    background: url(/assets//images/background-desktop.png);
+  }
 }
