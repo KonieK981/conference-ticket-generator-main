@@ -4,14 +4,13 @@ import FormView from "./components/FormView/FormView";
 import TicketView from "./components/TicketView/TicketView";
 
 function App() {
-  const [isSubmited, setIsSubmited] = useState(true);
+  const [isSubmited, setIsSubmited] = useState(false);
 
   return (
     <>
-      <BackgroundLayout />
-      <div className="title">
-        <img src="" alt="" />
-        <h2>Coding Conf</h2>
+      {/* <BackgroundLayout /> */}
+      <div className="main-title">
+        <img src="/assets/images/logo-full.svg" alt="Logo" />
       </div>
       {!isSubmited ? <FormView /> : <TicketView />}
 

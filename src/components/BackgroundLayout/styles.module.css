@@ -1,6 +1,7 @@
 .background {
   position: relative;
   width: 100%;
+  z-index: -1;
 }
 
 .topCenter {
@@ -9,7 +10,8 @@
   left: 0;
 
   img {
-    width: 930px;
+    /* width: 930px; */
+    z-index: -1;
   }
 }
 

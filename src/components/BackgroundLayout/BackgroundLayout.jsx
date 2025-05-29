@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 
 function BackgroundLayout() {
   return (
-    <div>
+    <div className="background">
       <div className={styles.topCenter}>
         <img src="/assets/images/pattern-lines.svg" alt="Top Center" />
       </div>
