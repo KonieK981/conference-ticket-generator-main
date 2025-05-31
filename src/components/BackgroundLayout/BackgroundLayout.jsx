@@ -1,23 +1,32 @@
 import styles from "./styles.module.css";
 
-function BackgroundLayout() {
+function BackgroundLayout({ children }) {
   return (
-    <div className="background">
-      <div className={styles.topCenter}>
-        <img src="/assets/images/pattern-lines.svg" alt="Top Center" />
-      </div>
-      <div className={styles.topRight}>
-        <img
-          src="/assets/images/pattern-squiggly-line-top.svg"
-          alt="Top Right"
+    <div className={styles.container}>
+      <img
+        src="/assets/images/pattern-lines.svg"
+        alt="Lines decoration"
+        className={styles.topCenter}
+      />
+      <img
+        src="/assets/images/pattern-squiggly-line-top.svg"
+        alt="Lines decoration"
+        className={styles.topRight}
+      />
+
+      <picture>
+        <source
+          media="(min-width:768px)"
+          srcSet="/assets/images/pattern-squiggly-line-bottom-desktop.svg"
         />
-      </div>
-      <div className={styles.bottomLeft}>
         <img
           src="/assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg"
-          alt="Bottom Left"
+          alt=""
+          className={styles.bottomLeft}
         />
-      </div>
+      </picture>
+
+      <div className={styles.content}>{children}</div>
     </div>
   );
 }
