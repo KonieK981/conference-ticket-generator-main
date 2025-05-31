@@ -8,7 +8,6 @@ function FormView() {
         Conf 2025 Starts Here!{" "}
       </h1>
       <h4 className="subtitle">
-        {" "}
         Secure your spot at next year's biggest coding conference.
       </h4>
       <form action="" className={styles.formTicket}>

@@ -44,16 +44,8 @@ body {
 }
 
 body {
-  background-attachment: fixed;
-  background-color: var(--neutral-0);
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background: url(/assets//images/background-mobile.png);
   color: var(--neutral-0);
   font-family: var(--font-family-base);
-  position: relative;
-  padding: 1.5rem 0.8rem;
 }
 
 @media only screen and (min-width: 768px) {
@@ -69,11 +61,8 @@ body {
 }
 
 .main-title {
-  margin: 0 auto;
-  width: 120px;
-  img {
-    width: 100%;
-  }
+  display: flex;
+  justify-content: center;
 }
 
 .title {
