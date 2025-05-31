@@ -1,0 +1,110 @@
+.main {
+  margin-top: 2.5rem;
+}
+
+h1 {
+  font-size: 1.6rem;
+  text-align: center;
+
+  span {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+h4 {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--neutral-500);
+  max-width: 350px;
+  margin: 0 auto;
+
+  span {
+    color: var(--orange-500);
+  }
+}
+
+.ticket {
+  background: url("/assets/images/pattern-ticket.svg") no-repeat center/cover;
+  width: 290px;
+  padding: 8px;
+  margin: 0 auto;
+  height: 135px;
+  margin-top: 3rem;
+  position: relative;
+
+  & > div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+  }
+}
+
+.leftSide {
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.dateWraper {
+  display: flex;
+  gap: 10px;
+}
+
+.dateInfo {
+  display: flex;
+  flex-direction: column;
+
+  img {
+    width: 120px;
+  }
+
+  span {
+    margin-top: 5px;
+    margin-left: 27px;
+    color: var(--neutral-500);
+    font-size: 0.7rem;
+  }
+}
+
+.userWraper {
+  display: flex;
+  gap: 10px;
+}
+
+.avatar {
+  img {
+    width: 30px;
+    border-radius: 5px;
+  }
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+
+  & > span {
+    font-size: 0.9rem;
+  }
+
+  span:nth-of-type(2) {
+    color: var(--neutral-500);
+    font-size: 0.7rem;
+    img {
+      width: 10px;
+      margin-right: 3px;
+    }
+  }
+}
+
+.rightSide {
+  position: absolute;
+  color: var(--neutral-500);
+  right: -5px;
+  top: 50px;
+  transform: rotate(90deg);
+}
