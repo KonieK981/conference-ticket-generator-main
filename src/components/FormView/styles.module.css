@@ -16,7 +16,7 @@
     display: block;
     margin-top: 0.5rem;
     background: hsla(245, 19%, 35%, 0.3);
-
+    color: var(--neutral-300);
     border: 1px solid var(--neutral-500);
     padding-left: 0.5rem;
     border-radius: 8px;
@@ -26,6 +26,11 @@
       color: var(--neutral-500);
       font-size: 0.7rem;
     }
+  }
+
+  input:hover {
+    background-color: var(--neutral-700);
+    cursor: pointer;
   }
 }
 
@@ -52,6 +57,15 @@
   p {
     font-size: 0.7rem;
     color: var(--neutral-300);
+  }
+}
+
+.groupUpload:hover {
+  background-color: var(--neutral-700);
+  cursor: pointer;
+
+  & .imgUpload {
+    border: 1px solid var(--neutral-300);
   }
 }
 
@@ -88,4 +102,9 @@ button {
   border: none;
   font-weight: 700;
   color: var(--neutral-900);
+}
+
+button:hover {
+  background-color: var(--orange-700);
+  cursor: pointer;
 }
