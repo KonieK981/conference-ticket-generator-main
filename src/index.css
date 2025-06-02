@@ -72,7 +72,7 @@ body {
 }
 
 .subtitle {
-  color: var(--neutral-500);
+  color: var(--neutral-300);
   font-size: 0.8rem;
   font-weight: 400;
   text-align: center;

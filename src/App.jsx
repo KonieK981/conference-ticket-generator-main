@@ -4,7 +4,7 @@ import FormView from "./components/FormView/FormView";
 import TicketView from "./components/TicketView/TicketView";
 
 function App() {
-  const [isSubmited, setIsSubmited] = useState(true);
+  const [isSubmited, setIsSubmited] = useState(false);
 
   return (
     <>
