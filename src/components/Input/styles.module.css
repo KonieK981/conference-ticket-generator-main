@@ -1,0 +1,37 @@
+.groupLabel {
+  color: var(--neutral-300);
+  font-size: 0.8rem;
+
+  input {
+    width: 100%;
+    display: block;
+    margin-top: 0.5rem;
+    background: hsla(245, 19%, 35%, 0.3);
+    color: var(--neutral-300);
+    border: 1px solid var(--neutral-500);
+    padding-left: 0.5rem;
+    border-radius: 8px;
+    height: 40px;
+
+    &::placeholder {
+      color: var(--neutral-500);
+      font-size: 0.7rem;
+    }
+  }
+
+  input:hover {
+    background-color: var(--neutral-700);
+    cursor: pointer;
+  }
+}
+
+.error {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  top: 8px;
+  color: var(--orange-500);
+  font-size: 0.6rem;
+  opacity: 0.6;
+}
