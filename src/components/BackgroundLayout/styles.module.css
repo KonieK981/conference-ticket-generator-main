@@ -6,13 +6,13 @@
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
-  z-index: -1;
 
   & > img,
   picture > img {
     position: absolute;
     pointer-events: none;
     user-select: none;
+    z-index: -1;
   }
 }
 
@@ -34,7 +34,7 @@
 }
 
 .topRight {
-  top: 0;
+  top: 20px;
   right: 0;
   width: 100px;
 }
