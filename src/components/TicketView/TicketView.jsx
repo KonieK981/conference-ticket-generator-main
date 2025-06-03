@@ -1,13 +1,17 @@
+import { useContext } from "react";
 import styles from "./styles.module.css";
+import FormCtx from "../../context/formContext";
 
 function TicketView() {
+  const { formValues } = useContext(FormCtx);
+  console.log(formValues);
   return (
     <div className={styles.main}>
       <h1>
-        Congrats, <span>Jonatan Kristof!</span> Your ticket is ready.
+        Congrats, <span>{formValues.name}</span> Your ticket is ready.
       </h1>
       <h4>
-        We've emailed your ticket to <span>jonatankristof0101</span> and will
+        We've emailed your ticket to <span>{formValues.email}</span> and will
         send updates in the run up to the event.
       </h4>
 
@@ -22,20 +26,20 @@ function TicketView() {
             </div>
             <div className={styles.userWraper}>
               <div className={styles.avatar}>
-                <img src="/assets/images/image-avatar.jpg" alt="Avatar" />
+                {formValues.file && <img src={formValues.file} alt="Avatar" />}
               </div>
               <div className={styles.user}>
-                <span>Jonatan Kristof</span>
+                <span>{formValues.name}</span>
                 <span>
                   <img src="/assets/images/icon-github.svg" alt="Avatar" />
-                  @jonatankristof0101
+                  {formValues.gitHubUser}
                 </span>
               </div>
             </div>
           </div>
           <div className={styles.rightSide}>
             <div>
-              <span>#016009</span>
+              <span>#{formValues.ticket}</span>
             </div>
           </div>
         </div>

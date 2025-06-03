@@ -1,9 +1,8 @@
 import React, { useRef, useState } from "react";
 import styles from "./styles.module.css";
 
-const AvatarUploader = ({ label }) => {
+const AvatarUploader = ({ label, image, setImage }) => {
   const fileInputRef = useRef(null);
-  const [image, setImage] = useState(null);
   const [dragging, setDragging] = useState(false);
   const [showError, setShowError] = useState(false);
 
