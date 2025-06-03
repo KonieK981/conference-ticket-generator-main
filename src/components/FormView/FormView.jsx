@@ -7,26 +7,31 @@ import Input from "../Input/Input";
 import styles from "./styles.module.css";
 
 function FormView() {
-  const { formData, errors, touched, handleChange, handleBlur, handleSubmit } =
-    useForm({ email: "", name: "", gitUser: "" }, validate);
-  const { formValues, setFormValues } = useContext(FormCtx);
+  const {
+    formData,
+    setFormData,
+    errors,
+    touched,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+  } = useForm({ email: "", name: "", gitUser: "", file: null }, validate);
+
+  const { setFormValues } = useContext(FormCtx);
+
+  const handleAvatarChange = (imgData) => {
+    setFormData((prev) => ({
+      ...prev,
+      file: imgData,
+    }));
+  };
 
   const onSubmit = (data) => {
     setFormValues((prev) => ({
       ...prev,
+      ...data,
       isSubmited: true,
-      name: data.name,
-      email: data.email,
-      gitHubUser: data.gitUser,
       ticket: "016009",
-      // file: prev.file, // ya está incluido con ...prev
-    }));
-  };
-
-  const handleAvatarChange = (imgData) => {
-    setFormValues((prev) => ({
-      ...prev,
-      file: imgData,
     }));
   };
 
@@ -46,8 +51,9 @@ function FormView() {
       >
         <AvatarUploader
           label="Upload Avatar"
-          image={formValues.file}
+          image={formData.file}
           setImage={handleAvatarChange}
+          errorMsg={errors.file}
         />
 
         <Input
