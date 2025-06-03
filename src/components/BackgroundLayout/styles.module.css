@@ -15,21 +15,10 @@
   }
 }
 
-@media (min-width: 640px) {
-  .container {
-    background-image: url("/assets/images/background-tablet.png");
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    background-image: url("/assets/images/background-desktop.png");
-  }
-}
-
 .topCenter {
   top: 0;
   left: 0;
+  opacity: 0.6;
 }
 
 .topRight {
@@ -48,4 +37,55 @@
   position: relative;
   z-index: 1;
   padding: 2rem;
+}
+
+.topCircle {
+  top: -23px;
+  left: -23px;
+  width: 100px;
+  opacity: 0.7;
+}
+
+.middleCircle {
+  top: 50%;
+  right: 0;
+  width: 100px;
+  opacity: 0.7;
+}
+
+@media (min-width: 640px) {
+  .container {
+    background-image: url("/assets/images/background-tablet.png");
+  }
+  .topCircle {
+    top: 0;
+    left: 0;
+  }
+
+  .middleCircle {
+    top: 50%;
+    right: -41px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    background-image: url("/assets/images/background-desktop.png");
+  }
+  .topRight {
+    top: 7%;
+    width: 200px;
+  }
+
+  .middleCircle {
+    top: 45%;
+    right: 21%;
+    width: 150px;
+  }
+
+  .bottomLeft {
+    bottom: 0;
+    left: 0;
+    width: 890px;
+  }
 }

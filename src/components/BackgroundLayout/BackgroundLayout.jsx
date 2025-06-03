@@ -13,7 +13,16 @@ function BackgroundLayout({ children }) {
         alt="Lines decoration"
         className={styles.topRight}
       />
-
+      <img
+        src="/assets/images/pattern-circle.svg"
+        alt="Circle decoration"
+        className={styles.topCircle}
+      />
+      <img
+        src="/assets/images/pattern-circle.svg"
+        alt="Circle decoration"
+        className={styles.middleCircle}
+      />
       <picture>
         <source
           media="(min-width:768px)"
