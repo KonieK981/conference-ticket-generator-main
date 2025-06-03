@@ -69,6 +69,8 @@ body {
   font-size: var(--font-size-label);
   text-align: center;
   color: var(--neutral-0);
+  max-width: 400px;
+  margin: 2rem auto 1rem;
 }
 
 .subtitle {
@@ -76,4 +78,10 @@ body {
   font-size: 0.8rem;
   font-weight: 400;
   text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 2rem;
+  }
 }
