@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import FormCtx from "../../context/formContext";
 import { useForm } from "../../hooks/useForm";
 import { validate } from "../../utils/utils";
 import AvatarUploader from "../AvatarUploader/AvatarUploader";
@@ -7,9 +9,25 @@ import styles from "./styles.module.css";
 function FormView() {
   const { formData, errors, touched, handleChange, handleBlur, handleSubmit } =
     useForm({ email: "", name: "", gitUser: "" }, validate);
+  const { formValues, setFormValues } = useContext(FormCtx);
 
   const onSubmit = (data) => {
-    alert("Submited:" + JSON.stringify(data, null, 2));
+    setFormValues((prev) => ({
+      ...prev,
+      isSubmited: true,
+      name: data.name,
+      email: data.email,
+      gitHubUser: data.gitUser,
+      ticket: "016009",
+      // file: prev.file, // ya está incluido con ...prev
+    }));
+  };
+
+  const handleAvatarChange = (imgData) => {
+    setFormValues((prev) => ({
+      ...prev,
+      file: imgData,
+    }));
   };
 
   return (
@@ -26,7 +44,11 @@ function FormView() {
         className={styles.formTicket}
         noValidate
       >
-        <AvatarUploader label="Upload Avatar" />
+        <AvatarUploader
+          label="Upload Avatar"
+          image={formValues.file}
+          setImage={handleAvatarChange}
+        />
 
         <Input
           label="Full Name"
@@ -58,7 +80,7 @@ function FormView() {
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder="@yourusername"
-          value={formData.email}
+          value={formData.gitUser}
         />
         <button>Generate My Ticket</button>
       </form>
