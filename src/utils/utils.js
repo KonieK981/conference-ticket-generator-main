@@ -1,6 +1,6 @@
 export function validate(values) {
   const errors = {};
-
+  console.log(values);
   // Name: required, min 6, no numbers
   if (!values.name) {
     errors.name = "Name is required";
@@ -23,6 +23,11 @@ export function validate(values) {
   } else if (!/^(?!-)(?!.*--)[a-zA-Z\d-]{1,39}(?<!-)$/.test(values.gitUser)) {
     errors.gitUser =
       "Invalid GitHub username. Only letters, numbers, hyphens, 1-39 chars, no leading/trailing hyphens, no consecutive hyphens.";
+  }
+
+  // File: required, min 6, no numbers
+  if (!values.file) {
+    errors.file = "File is required";
   }
 
   return errors;
