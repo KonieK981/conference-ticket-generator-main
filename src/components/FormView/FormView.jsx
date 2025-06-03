@@ -1,5 +1,6 @@
 import { useForm } from "../../hooks/useForm";
 import { validate } from "../../utils/utils";
+import AvatarUploader from "../AvatarUploader/AvatarUploader";
 import Input from "../Input/Input";
 import styles from "./styles.module.css";
 
@@ -25,20 +26,7 @@ function FormView() {
         className={styles.formTicket}
         noValidate
       >
-        <label className={styles.upload}>
-          Upload Avatar
-          <div className={styles.groupUpload}>
-            <div className={styles.imgUpload}>
-              <img src="/assets/images/icon-upload.svg" alt="Upload" />
-            </div>
-            <input type="file" />
-            <p>Drag and drop or click to upload</p>
-          </div>
-          <p>
-            <img src="/assets/images/icon-info.svg" alt="" />
-            Upload your photo (JPG or PNG, max size: 500KB).
-          </p>
-        </label>
+        <AvatarUploader />
 
         <Input
           label="Full Name"
