@@ -30,5 +30,13 @@ export function useForm(initialValues, validate) {
     }
   };
 
-  return { formData, errors, touched, handleChange, handleBlur, handleSubmit };
+  return {
+    formData,
+    errors,
+    touched,
+    setFormData,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+  };
 }
