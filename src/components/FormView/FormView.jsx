@@ -26,7 +26,7 @@ function FormView() {
         className={styles.formTicket}
         noValidate
       >
-        <AvatarUploader />
+        <AvatarUploader label="Upload Avatar" />
 
         <Input
           label="Full Name"
