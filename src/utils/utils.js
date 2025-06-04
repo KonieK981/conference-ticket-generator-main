@@ -28,3 +28,9 @@ export function validate(values) {
 
   return errors;
 }
+
+export function generateTicketNumber() {
+  return Math.floor(Math.random() * 1000000)
+    .toString()
+    .padStart(6, "0");
+}

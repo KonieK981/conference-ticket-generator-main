@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import FormCtx from "../../context/formContext";
 import { useForm } from "../../hooks/useForm";
-import { validate } from "../../utils/utils";
+import { generateTicketNumber, validate } from "../../utils/utils";
 import AvatarUploader from "../AvatarUploader/AvatarUploader";
 import Input from "../Input/Input";
 import styles from "./styles.module.css";
@@ -31,7 +31,7 @@ function FormView() {
       ...prev,
       ...data,
       isSubmited: true,
-      ticket: "016009",
+      ticket: generateTicketNumber(),
     }));
   };
 
