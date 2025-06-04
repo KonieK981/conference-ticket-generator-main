@@ -17,6 +17,11 @@
       color: var(--neutral-500);
       font-size: 0.7rem;
     }
+
+    &:focus {
+      border: 2px solid var(--neutral-500);
+      outline: none;
+    }
   }
 
   input:hover {
