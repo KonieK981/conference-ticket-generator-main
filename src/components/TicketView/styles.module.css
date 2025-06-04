@@ -66,8 +66,8 @@ h4 {
   span {
     margin-top: 5px;
     margin-left: 27px;
-    color: var(--neutral-500);
-    font-size: 0.7rem;
+    color: var(--neutral-300);
+    font-size: 0.5rem;
   }
 }
 
@@ -79,6 +79,7 @@ h4 {
 .avatar {
   img {
     width: 30px;
+    height: 30px;
     border-radius: 5px;
   }
 }
@@ -86,14 +87,18 @@ h4 {
 .user {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
 
   & > span {
     font-size: 0.9rem;
   }
 
   span:nth-of-type(2) {
-    color: var(--neutral-500);
-    font-size: 0.7rem;
+    color: var(--neutral-300);
+    display: flex;
+    justify-content: baseline;
+    font-size: 0.6rem;
     img {
       width: 10px;
       margin-right: 3px;

@@ -1,23 +1,43 @@
+import { useContext } from "react";
+import FormCtx from "../../context/formContext";
 import { useForm } from "../../hooks/useForm";
-import { validate } from "../../utils/utils";
+import { generateTicketNumber, validate } from "../../utils/utils";
 import AvatarUploader from "../AvatarUploader/AvatarUploader";
 import Input from "../Input/Input";
 import styles from "./styles.module.css";
 
 function FormView() {
-  const { formData, errors, touched, handleChange, handleBlur, handleSubmit } =
-    useForm({ email: "", name: "", gitUser: "" }, validate);
+  const {
+    formData,
+    setFormData,
+    errors,
+    touched,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+  } = useForm({ email: "", name: "", gitUser: "", file: null }, validate);
+
+  const { setFormValues } = useContext(FormCtx);
+
+  const handleAvatarChange = (imgData) => {
+    setFormData((prev) => ({
+      ...prev,
+      file: imgData,
+    }));
+  };
 
   const onSubmit = (data) => {
-    alert("Submited:" + JSON.stringify(data, null, 2));
+    setFormValues((prev) => ({
+      ...prev,
+      ...data,
+      isSubmited: true,
+      ticket: generateTicketNumber(),
+    }));
   };
 
   return (
     <div>
-      <h1 className="title">
-        Your Journey to Coding <br />
-        Conf 2025 Starts Here!{" "}
-      </h1>
+      <h1 className="title">Your Journey to Coding Conf 2025 Starts Here! </h1>
       <h4 className="subtitle">
         Secure your spot at next year's biggest coding conference.
       </h4>
@@ -26,7 +46,12 @@ function FormView() {
         className={styles.formTicket}
         noValidate
       >
-        <AvatarUploader label="Upload Avatar" />
+        <AvatarUploader
+          label="Upload Avatar"
+          image={formData.file}
+          setImage={handleAvatarChange}
+          errorMsg={errors.file}
+        />
 
         <Input
           label="Full Name"
@@ -58,7 +83,7 @@ function FormView() {
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder="@yourusername"
-          value={formData.email}
+          value={formData.gitUser}
         />
         <button>Generate My Ticket</button>
       </form>

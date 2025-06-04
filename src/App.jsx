@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext } from "react";
 import BackgroundLayout from "./components/BackgroundLayout/BackgroundLayout";
 import FormView from "./components/FormView/FormView";
 import TicketView from "./components/TicketView/TicketView";
+import FormContext from "./context/FormContext";
 
 function App() {
-  const [isSubmited, setIsSubmited] = useState(false);
+  const { formValues } = useContext(FormContext);
+
+  const isSubmited = formValues.isSubmited;
 
   return (
     <>

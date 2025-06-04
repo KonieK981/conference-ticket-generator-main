@@ -17,6 +17,11 @@
       color: var(--neutral-500);
       font-size: 0.7rem;
     }
+
+    &:focus {
+      border: 2px solid var(--neutral-500);
+      outline: none;
+    }
   }
 
   input:hover {
@@ -34,4 +39,8 @@
   color: var(--orange-500);
   font-size: 0.6rem;
   opacity: 0.6;
+}
+
+.hidden {
+  visibility: hidden;
 }

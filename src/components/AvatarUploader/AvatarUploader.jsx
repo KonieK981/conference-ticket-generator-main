@@ -1,29 +1,33 @@
 import React, { useRef, useState } from "react";
 import styles from "./styles.module.css";
 
-const AvatarUploader = ({ label }) => {
+const AvatarUploader = ({ label, image, setImage, errorMsg }) => {
   const fileInputRef = useRef(null);
-  const [image, setImage] = useState(null);
   const [dragging, setDragging] = useState(false);
-  const [showError, setShowError] = useState(false);
+  const [localError, setLocalError] = useState(""); // Solo este para errores locales
 
   const MAX_SIZE = 500 * 1024; // 500KB
 
   const handleFile = (file) => {
-    if (file && file.type.startsWith("image/")) {
-      if (file.size > MAX_SIZE) {
-        setShowError(true);
-        setImage(null);
-        fileInputRef.current.value = null;
-        return;
-      }
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result);
-        setShowError(false);
-      };
-      reader.readAsDataURL(file);
+    if (!file) return;
+    if (!file.type.startsWith("image/")) {
+      setLocalError("Only image files are allowed.");
+      setImage(null);
+      fileInputRef.current.value = null;
+      return;
     }
+    if (file.size > MAX_SIZE) {
+      setLocalError("File too large. Please upload a photo under 500KB.");
+      setImage(null);
+      fileInputRef.current.value = null;
+      return;
+    }
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImage(reader.result);
+      setLocalError("");
+    };
+    reader.readAsDataURL(file);
   };
 
   const onDrop = (e) => {
@@ -35,20 +39,17 @@ const AvatarUploader = ({ label }) => {
 
   const onChange = (e) => {
     const file = e.target.files[0];
-    if (file) {
-      handleFile(file);
-    } else if (!image) {
-      setShowError(true);
-    }
+    handleFile(file);
   };
 
   const removeImage = () => {
     setImage(null);
+    setLocalError("");
     fileInputRef.current.value = null;
   };
 
   const handleUploadClick = () => {
-    setShowError(false);
+    setLocalError("");
     if (!image) {
       fileInputRef.current.value = null;
       fileInputRef.current.click();
@@ -67,6 +68,12 @@ const AvatarUploader = ({ label }) => {
         onDragLeave={() => setDragging(false)}
         onDrop={onDrop}
         onClick={handleUploadClick}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            handleUploadClick();
+          }
+        }}
         tabIndex={0}
         role="button"
       >
@@ -121,27 +128,27 @@ const AvatarUploader = ({ label }) => {
             viewBox="0 0 16 16"
           >
             <path
-              stroke={showError ? "#f57261" : "#D1D0D5"}
+              stroke={localError || errorMsg ? "#f57261" : "#D1D0D5"}
               strokeLinecap="round"
               strokeLinejoin="round"
               d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z"
             />
             <path
-              fill={showError ? "#f57261" : "#D1D0D5"}
+              fill={localError || errorMsg ? "#f57261" : "#D1D0D5"}
               d="M8.004 10.462V7.596ZM8 5.57v-.042Z"
             />
             <path
-              stroke={showError ? "#f57261" : "#D1D0D5"}
+              stroke={localError || errorMsg ? "#f57261" : "#D1D0D5"}
               strokeLinecap="round"
               strokeLinejoin="round"
               d="M8.004 10.462V7.596M8 5.569v-.042"
             />
           </svg>
         </span>
-        <span className={showError ? styles.errorMsg : ""}>
-          {showError
-            ? "File too large. Please upload a photo under 500kb"
-            : "Upload your photo (JPG or PNG, max size: 500KB)."}
+        <span className={localError || errorMsg ? styles.errorMsg : ""}>
+          {localError ||
+            errorMsg ||
+            "Upload your photo (JPG or PNG, max size: 500KB)."}
         </span>
       </p>
     </div>
