@@ -39,8 +39,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/KonieK981/conference-ticket-generator-main](https://github.com/KonieK981/conference-ticket-generator-main)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/KonieK981/conference-ticket-generator-main]
+- Live Site URL: [https://conference-ticket-generator-main-blue.vercel.app/]
 
 ---
 
