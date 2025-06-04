@@ -68,6 +68,12 @@ const AvatarUploader = ({ label, image, setImage, errorMsg }) => {
         onDragLeave={() => setDragging(false)}
         onDrop={onDrop}
         onClick={handleUploadClick}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            handleUploadClick();
+          }
+        }}
         tabIndex={0}
         role="button"
       >

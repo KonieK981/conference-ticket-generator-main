@@ -78,8 +78,8 @@ h4 {
 
 .avatar {
   img {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     border-radius: 5px;
   }
 }
@@ -96,6 +96,8 @@ h4 {
 
   span:nth-of-type(2) {
     color: var(--neutral-300);
+    display: flex;
+    justify-content: baseline;
     font-size: 0.6rem;
     img {
       width: 10px;

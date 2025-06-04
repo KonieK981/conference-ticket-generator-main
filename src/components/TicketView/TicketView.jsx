@@ -2,9 +2,11 @@ import { useContext } from "react";
 import styles from "./styles.module.css";
 import FormCtx from "../../context/formContext";
 
+const place = "Jan 31, 2025 / Austin, TX";
+
 function TicketView() {
   const { formValues } = useContext(FormCtx);
-  console.log(formValues);
+
   return (
     <div className={styles.main}>
       <h1>
@@ -21,7 +23,7 @@ function TicketView() {
             <div className={styles.dateWraper}>
               <div className={styles.dateInfo}>
                 <img src="/assets/images/logo-full.svg" alt="Logo" />
-                <span>Jan 31, 2025 / Austin, TX</span>
+                <span>{place}</span>
               </div>
             </div>
             <div className={styles.userWraper}>
@@ -32,7 +34,7 @@ function TicketView() {
                 <span>{formValues.name}</span>
                 <span>
                   <img src="/assets/images/icon-github.svg" alt="Avatar" />
-                  {formValues.gitHubUser}
+                  {formValues.gitUser}
                 </span>
               </div>
             </div>
