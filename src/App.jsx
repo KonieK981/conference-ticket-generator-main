@@ -2,10 +2,10 @@ import { useContext } from "react";
 import BackgroundLayout from "./components/BackgroundLayout/BackgroundLayout";
 import FormView from "./components/FormView/FormView";
 import TicketView from "./components/TicketView/TicketView";
-import FormContext from "./context/FormContext";
+import FormCtx from "./context/formContext";
 
 function App() {
-  const { formValues } = useContext(FormContext);
+  const { formValues } = useContext(FormCtx);
 
   const isSubmited = formValues.isSubmited;
 
@@ -13,7 +13,7 @@ function App() {
     <>
       <BackgroundLayout>
         <div className="main-title">
-          <img src="/assets/images/logo-full.svg" alt="Logo" />
+          <img src="assets/images/logo-full.svg" alt="Logo" />
         </div>
         {!isSubmited ? <FormView /> : <TicketView />}
       </BackgroundLayout>

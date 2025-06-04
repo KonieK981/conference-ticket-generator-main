@@ -50,13 +50,13 @@ body {
 
 @media only screen and (min-width: 768px) {
   body {
-    background: url(/assets//images/background-tablet.png);
+    background: url(/assets/images/background-tablet.png);
   }
 }
 
 @media only screen and (min-width: 998px) {
   body {
-    background: url(/assets//images/background-desktop.png);
+    background: url(/assets/images/background-desktop.png);
   }
 }
 

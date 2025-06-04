@@ -22,7 +22,7 @@ function TicketView() {
           <div className={styles.leftSide}>
             <div className={styles.dateWraper}>
               <div className={styles.dateInfo}>
-                <img src="/assets/images/logo-full.svg" alt="Logo" />
+                <img src="assets/images/logo-full.svg" alt="Logo" />
                 <span>{place}</span>
               </div>
             </div>
@@ -33,7 +33,7 @@ function TicketView() {
               <div className={styles.user}>
                 <span>{formValues.name}</span>
                 <span>
-                  <img src="/assets/images/icon-github.svg" alt="Avatar" />
+                  <img src="assets/images/icon-github.svg" alt="Avatar" />
                   {formValues.gitUser}
                 </span>
               </div>

@@ -112,7 +112,7 @@ const AvatarUploader = ({ label, image, setImage, errorMsg }) => {
         ) : (
           <>
             <div className={styles.imgUpload}>
-              <img src="/assets/images/icon-upload.svg" alt="Upload" />
+              <img src="assets/images/icon-upload.svg" alt="Upload" />
             </div>
             <p>Drag and drop or click to upload</p>
           </>
